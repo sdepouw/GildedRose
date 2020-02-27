@@ -4,14 +4,13 @@ using System.IO;
 using System.Text;
 using ApprovalTests;
 using ApprovalTests.Reporters;
-using GildedRose;
 
-namespace csharpcore
+namespace GildedRose
 {
     [UseReporter(typeof(DiffReporter))]
     public class ApprovalTest
     {
-        [Fact(Skip = "Skipping until the end.")]
+        [Fact]
         public void ThirtyDays()
         {
             var fakeoutput = new StringBuilder();
