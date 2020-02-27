@@ -4,7 +4,7 @@ namespace GildedRose
 {
     public class GildedRose
     {
-        IList<Item> Items;
+        IList<Item> Items; // Do not mutate.
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
