@@ -56,6 +56,40 @@ namespace GildedRose
             Assert.Equal(10, item.Quality);
         }
 
+        [Theory]
+        [InlineData(10)]
+        [InlineData(9)]
+        [InlineData(8)]
+        [InlineData(7)]
+        [InlineData(6)]
+        public void BackstagePassesGetDoubleQualityWithin10DaysOfEvent(int sellIn)
+        {
+            var item = new ItemBuilder().BackstagePasses().Quality(30).SellIn(sellIn).Build();
+            RunApp(item);
+            Assert.Equal(32, item.Quality);
+        }
+
+        [Theory]
+        [InlineData(5)]
+        [InlineData(4)]
+        [InlineData(3)]
+        [InlineData(2)]
+        [InlineData(1)]
+        public void BackstagePassesGetTripleQualityWithin5DaysOfEvent(int sellIn)
+        {
+            var item = new ItemBuilder().BackstagePasses().Quality(20).SellIn(sellIn).Build();
+            RunApp(item);
+            Assert.Equal(23, item.Quality);
+        }
+
+        [Fact]
+        public void BackstagePassesAreWorthlessAfterSellInExpires()
+        {
+            var item = new ItemBuilder().BackstagePasses().SellInExpired().Build();
+            RunApp(item);
+            Assert.Equal(0, item.Quality);
+        }
+
         private void AssertAll(Item[] items, Func<Item, bool> testFunc, string message)
         {
             Assert.True(items.All(testFunc), $"{message} {string.Join(", ", items.Where(item => item.Quality > 50).Select(item => item.Name))}");
