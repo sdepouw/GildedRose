@@ -15,5 +15,7 @@ jobs:
         dotnet-version: '3.1.100'
     - name: Build
       run: dotnet build --configuration Release
-    - name: Run All Tests
-      run: dotnet test
+    - name: Unit Tests
+      run: dotnet test --filter Category=Unit
+    #- name: Approval Tests
+    #  run: dotnet test --filter Category=Approval

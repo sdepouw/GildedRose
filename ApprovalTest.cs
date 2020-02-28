@@ -10,6 +10,7 @@ namespace GildedRose
     [UseReporter(typeof(DiffReporter))]
     public class ApprovalTest
     {
+        [Trait("Category", "Approval")]
         [Fact(Skip="Not working currently.")]
         public void ThirtyDays()
         {

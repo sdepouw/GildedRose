@@ -4,6 +4,7 @@ using Xunit;
 
 namespace GildedRose
 {
+    [Trait("Category", "Unit")]
     public class LegacyTests
     {
         private void RunApp(params Item[] items) => new GildedRose(items).UpdateQuality();
