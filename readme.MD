@@ -2,5 +2,5 @@
 
 An implementation of the Gilded Rose Kata.
 * [Gilded Rose Kata](https://github.com/ardalis/kata-catalog/blob/master/katas/Gilded%20Rose.md)
-  * I use C# Gilded Rose code provided by [NotMyself](https://github.com/NotMyself/GildedRose)
+  * I used C# Gilded Rose code provided by [Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 * [Kata Catalog by Ardalis](https://github.com/ardalis/kata-catalog)
