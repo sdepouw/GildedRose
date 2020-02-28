@@ -6,13 +6,29 @@ namespace GildedRose
 {
     public class LegacyTests
     {
-        private GildedRose GetApp(params Item[] items) => new GildedRose(items);
+        private void RunApp(params Item[] items) => new GildedRose(items).UpdateQuality();
+
+        [Fact]
+        public void QualityCannotGoNegative()
+        {
+            var items = OneOfEach();
+            RunApp(items);
+            AssertAll(items, item => item.Quality >= 0, "Some items dropped to negative quality!");
+        }
+
+        [Fact]
+        public void QualityCannotExceed50()
+        {
+            var items = OneOfEach();
+            RunApp(items);
+            AssertAll(items, item => item.Quality <= 50, "Some items exceeded max quality!");
+        }
 
         [Fact]
         public void NormalItemDecreasesInQualityEachDay()
         {
             var item = new ItemBuilder().Normal().Quality(75).Build();
-            GetApp(item).UpdateQuality();
+            RunApp(item);
             Assert.Equal(74, item.Quality);
         }
 
@@ -20,32 +36,24 @@ namespace GildedRose
         public void NormalItemDegradesTwiceAsFastAfterSellInPassed()
         {
             var item = new ItemBuilder().Normal().Quality(35).SellInExpired().Build();
-            GetApp(item).UpdateQuality();
+            RunApp(item);
             Assert.Equal(33, item.Quality);
-        }
-
-        [Fact]
-        public void ItemQualityCannotGoNegative()
-        {
-            var items = OneOfEach();
-            GetApp(items).UpdateQuality();
-            AssertAll(items, item => item.Quality >= 0, "Some items dropped to negative quality!");
         }
 
         [Fact]
         public void AgedBrieIncreasesWithAge()
         {
             var item = new ItemBuilder().AgedBrie().Quality(30).Build();
-            GetApp(item).UpdateQuality();
+            RunApp(item);
             Assert.Equal(31, item.Quality);
         }
 
         [Fact]
-        public void QualityCannotExceed50()
+        public void SulfurasNeverDecreasesInQuality()
         {
-            var items = OneOfEach();
-            GetApp(items).UpdateQuality();
-            AssertAll(items, item => item.Quality <= 50, "Some items exceeded max quality!");
+            var item = new ItemBuilder().Sulfuras().Quality(10).SellInExpired().Build();
+            RunApp(item);
+            Assert.Equal(10, item.Quality);
         }
 
         private void AssertAll(Item[] items, Func<Item, bool> testFunc, string message)
