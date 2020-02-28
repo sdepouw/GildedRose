@@ -27,7 +27,7 @@ namespace GildedRose
 
         public ItemBuilder AgedBrie()
         {
-            _item.Name = "Aged Brie";
+            _item.Name = ItemNames.AgedBrie;
             _item.SellIn = 4;
             _item.Quality = 10;
 
@@ -36,7 +36,7 @@ namespace GildedRose
 
         public ItemBuilder Sulfuras()
         {
-            _item.Name = "Sulfuras, Hand of Ragnaros";
+            _item.Name = ItemNames.Sulfuras;
             _item.SellIn = 3;
             _item.Quality = 80;
 
@@ -45,7 +45,7 @@ namespace GildedRose
 
         public ItemBuilder BackstagePasses()
         {
-            _item.Name = "Backstage passes to a TAFKAL80ETC concert";
+            _item.Name = ItemNames.BackstagePasses;
             _item.SellIn = 9;
             _item.Quality = 40;
 
