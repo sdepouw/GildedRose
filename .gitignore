@@ -2,3 +2,4 @@ bin
 obj
 *.approved.txt
 *.received.txt
+.vscode
