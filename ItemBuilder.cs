@@ -53,6 +53,7 @@ namespace GildedRose
         }
 
         public ItemBuilder NoQuality() => Quality(0);
+        public ItemBuilder MaxQuality() => Quality(50);
         public ItemBuilder SellInExpired() => SellIn(0);
 
         public Item Build() => _item;
