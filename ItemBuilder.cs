@@ -59,10 +59,3 @@ namespace GildedRose
         public Item Build() => _item;
     }
 }
-
-/*
-
-        public static ItemName Sulfuras = new ItemName("Sulfuras");
-        public static ItemName BackstagePasses = new ItemName("Backstage passes");
-
-*/
