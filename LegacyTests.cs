@@ -62,6 +62,14 @@ namespace GildedRose
             Assert.Equal(expectedQuality, item.Quality);
         }
 
+        [Fact]
+        public void SulfurasSellInNeverChanges()
+        {
+            var item = new ItemBuilder().Sulfuras().SellIn(15).Build();
+            RunApp(item);
+            Assert.Equal(15, item.SellIn);
+        }
+
         [Theory]
         [InlineData(10)]
         [InlineData(9)]
