@@ -48,12 +48,18 @@ namespace GildedRose
             Assert.Equal(31, item.Quality);
         }
 
-        [Fact]
-        public void SulfurasNeverDecreasesInQuality()
+        [Theory]
+        [InlineData(5)]
+        [InlineData(1)]
+        [InlineData(0)]
+        [InlineData(-1)]
+        [InlineData(-10)]
+        public void SulfurasNeverChangesInQuality(int sellIn)
         {
-            var item = new ItemBuilder().Sulfuras().Quality(10).SellInExpired().Build();
+            var item = new ItemBuilder().Sulfuras().SellIn(sellIn).Build();
+            int expectedQuality = item.Quality;
             RunApp(item);
-            Assert.Equal(10, item.Quality);
+            Assert.Equal(expectedQuality, item.Quality);
         }
 
         [Theory]

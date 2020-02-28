@@ -38,7 +38,7 @@ namespace GildedRose
         {
             _item.Name = "Sulfuras, Hand of Ragnaros";
             _item.SellIn = 3;
-            _item.Quality = 30;
+            _item.Quality = 80;
 
             return this;
         }
