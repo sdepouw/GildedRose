@@ -28,9 +28,9 @@ namespace GildedRose
         [Fact]
         public void NormalItemDecreasesInQualityEachDay()
         {
-            var item = new ItemBuilder().Normal().Quality(75).Build();
+            var item = new ItemBuilder().Normal().Quality(49).Build();
             RunApp(item);
-            Assert.Equal(74, item.Quality);
+            Assert.Equal(48, item.Quality);
         }
 
         [Fact]
@@ -42,11 +42,19 @@ namespace GildedRose
         }
 
         [Fact]
-        public void AgedBrieIncreasesWithAge()
+        public void AgedBrieQualityIncreasesWithAge()
         {
             var item = new ItemBuilder().AgedBrie().Quality(30).Build();
             RunApp(item);
             Assert.Equal(31, item.Quality);
+        }
+
+        [Fact]
+        public void AgedBrieQualityIncreasesDoublyAfterSellIn()
+        {
+            var item = new ItemBuilder().AgedBrie().Quality(30).SellInExpired().Build();
+            RunApp(item);
+            Assert.Equal(32, item.Quality);
         }
 
         [Theory]
@@ -55,7 +63,7 @@ namespace GildedRose
         [InlineData(0)]
         [InlineData(-1)]
         [InlineData(-10)]
-        public void SulfurasNeverChangesInQuality(int sellIn)
+        public void SulfurasQualityNeverChanges(int sellIn)
         {
             var item = new ItemBuilder().Sulfuras().SellIn(sellIn).Build();
             int expectedQuality = item.Quality;
