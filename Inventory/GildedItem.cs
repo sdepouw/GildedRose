@@ -24,16 +24,15 @@ namespace GildedRose.Inventory
         protected virtual bool ZeroOutQuality(int sellIn) => false;
         protected virtual void UpdateSellIn() => _item.SellIn--;
 
-        public void Update()
+        public void UpdateItem()
         {
-            int qualityModifier = CalculateQualityModifier(_item.SellIn);
-
             if (ZeroOutQuality(_item.SellIn))
             {
                 Quality = 0;
             }
             else
             {
+                int qualityModifier = CalculateQualityModifier(_item.SellIn);
                 if (_isConjured)
                 {
                     qualityModifier *= 2;

@@ -15,7 +15,7 @@ namespace GildedRose
             var gildedItems = GildedItemFactory.CreateItems(Items);
             foreach(var item in gildedItems)
             {
-                item.Update();
+                item.UpdateItem();
             }
         }
     }
