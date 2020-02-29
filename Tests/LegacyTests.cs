@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Linq;
-using GildedRose.Tests.CustomTraits;
 using Xunit;
 
 namespace GildedRose.Tests
 {
-    [UnitTestTrait]
-    public class LegacyTests
+    public class LegacyTests : AppTests
     {
-        private void RunApp(params Item[] items) => new GildedRose(items).UpdateQuality();
-
         [Fact]
         public void QualityCannotGoNegative()
         {

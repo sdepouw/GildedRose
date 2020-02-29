@@ -1,13 +1,9 @@
-using GildedRose.Tests.CustomTraits;
 using Xunit;
 
 namespace GildedRose.Tests
 {
-    [UnitTestTrait]
-    public class ConjuredItemTests
+    public class ConjuredItemTests : AppTests
     {
-        private void RunApp(params Item[] items) => new GildedRose(items).UpdateQuality();
-
         [Fact]
         public void ConjuredItemDegradesTwiceAsFast()
         {
