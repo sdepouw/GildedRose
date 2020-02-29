@@ -4,9 +4,9 @@ namespace GildedRose.Inventory
     {
         public NormalItem(Item item) : base(item) { }
 
-        protected override void UpdateQuality()
+        protected override void UpdateQuality(int sellIn)
         {
-            if (SellIn > 0)
+            if (sellIn > 0)
             {
                 Quality--;
             }
