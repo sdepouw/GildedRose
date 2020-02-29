@@ -3,17 +3,6 @@ namespace GildedRose.Inventory
     public class NormalItem : GildedItem
     {
         public NormalItem(Item item) : base(item) { }
-
-        protected override void UpdateQuality(int sellIn)
-        {
-            if (sellIn > 0)
-            {
-                Quality--;
-            }
-            else
-            {
-                Quality -= 2;
-            }
-        }
+        protected override int CalculateQualityModifier(int sellIn) => sellIn > 0 ? -1 : -2;
     }
 }

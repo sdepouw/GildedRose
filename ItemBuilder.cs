@@ -20,7 +20,7 @@ namespace GildedRose
         {
             _item.Name = "Normal";
             _item.SellIn = 10;
-            _item.Quality = 100;
+            _item.Quality = 15;
 
             return this;
         }
@@ -47,7 +47,7 @@ namespace GildedRose
         {
             _item.Name = ItemNames.BackstagePasses;
             _item.SellIn = 20;
-            _item.Quality = 40;
+            _item.Quality = 3;
 
             return this;
         }

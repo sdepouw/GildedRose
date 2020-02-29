@@ -6,7 +6,7 @@ namespace GildedRose.Inventory
     {
         private readonly Item _item;
 
-        protected int Quality
+        private int Quality
         { 
             get => _item.Quality;
             set => _item.Quality = Math.Max(0, Math.Min(MaxQuality, value));
@@ -15,12 +15,13 @@ namespace GildedRose.Inventory
         public GildedItem(Item item) => _item = item;
 
         protected virtual int MaxQuality => 50;
-        protected abstract void UpdateQuality(int sellIn);
+        protected abstract int CalculateQualityModifier(int sellIn);
         protected virtual void UpdateSellIn() => _item.SellIn--;
 
         public void Update()
         {
-            UpdateQuality(_item.SellIn);
+            int qualityModifier = CalculateQualityModifier(_item.SellIn);
+            Quality += qualityModifier;
             UpdateSellIn();
         }
     }

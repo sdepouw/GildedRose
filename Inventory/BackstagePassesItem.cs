@@ -4,21 +4,22 @@ namespace GildedRose.Inventory
     {
         public BackstagePassesItem(Item item) : base(item) { }
 
-        protected override void UpdateQuality(int sellIn)
+        protected override int CalculateQualityModifier(int sellIn)
         { 
-            Quality++;
+            int qualityModifier = 1;
             if (sellIn <= 10)
             {
-                Quality++;
+                qualityModifier++;
             }
             if (sellIn <= 5)
             {
-                Quality++;
+                qualityModifier++;
             }
             if (sellIn <= 0)
             {
-                Quality = 0;
+                return -int.MaxValue;
             }
+            return qualityModifier;
         }
     }
 }

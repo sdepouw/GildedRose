@@ -5,7 +5,7 @@ namespace GildedRose.Inventory
         public SulfurasItem(Item item) : base(item) { }
         protected override int MaxQuality => int.MaxValue;
 
-        protected override void UpdateQuality(int sellIn) { }
+        protected override int CalculateQualityModifier(int sellIn) => 0;
         protected override void UpdateSellIn() { }
     }
 }
