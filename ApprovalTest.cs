@@ -11,7 +11,7 @@ namespace GildedRose
     public class ApprovalTest
     {
         [Trait("Category", "Approval")]
-        [Fact(Skip="Not working currently.")]
+        [Fact]
         public void ThirtyDays()
         {
             var fakeoutput = new StringBuilder();
