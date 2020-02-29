@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace GildedRose
+namespace GildedRose.Tests
 {
     [Trait("Category", "Unit")]
     public class LegacyTests
