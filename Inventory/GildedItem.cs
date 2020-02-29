@@ -21,18 +21,25 @@ namespace GildedRose.Inventory
 
         protected virtual int MaxQuality => 50;
         protected abstract int CalculateQualityModifier(int sellIn);
+        protected virtual bool ZeroOutQuality(int sellIn) => false;
         protected virtual void UpdateSellIn() => _item.SellIn--;
 
         public void Update()
         {
             int qualityModifier = CalculateQualityModifier(_item.SellIn);
 
-            // HACK: -int.MaxValue means "set to 0" basically.
-            if (_isConjured && qualityModifier != -int.MaxValue)
+            if (ZeroOutQuality(_item.SellIn))
             {
-                qualityModifier *= 2;
+                Quality = 0;
             }
-            Quality += qualityModifier;
+            else
+            {
+                if (_isConjured)
+                {
+                    qualityModifier *= 2;
+                }
+                Quality += qualityModifier;
+            }
 
             UpdateSellIn();
         }

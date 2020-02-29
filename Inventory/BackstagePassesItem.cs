@@ -15,11 +15,9 @@ namespace GildedRose.Inventory
             {
                 qualityModifier++;
             }
-            if (sellIn <= 0)
-            {
-                return -int.MaxValue;
-            }
             return qualityModifier;
         }
+
+        protected override bool ZeroOutQuality(int sellIn) => sellIn <= 0;
     }
 }
