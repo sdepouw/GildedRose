@@ -18,6 +18,8 @@ namespace GildedRose
                     return new SulfurasItem(item);
                 case ItemNames.BackstagePasses:
                     return new BackstagePassesItem(item);
+                case ItemNames.Conjured:
+                    return new ConjuredItem(item);
                 default:
                     return new NormalItem(item);
             }

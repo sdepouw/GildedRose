@@ -52,6 +52,15 @@ namespace GildedRose
             return this;
         }
 
+        public ItemBuilder Conjured()
+        {
+            _item.Name = ItemNames.Conjured;
+            _item.SellIn = 13;
+            _item.Quality = 10;
+
+            return this;
+        }
+
         public ItemBuilder NoQuality() => Quality(0);
         public ItemBuilder MaxQuality() => Quality(50);
         public ItemBuilder SellInExpired() => SellIn(0);
