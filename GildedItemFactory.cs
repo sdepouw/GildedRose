@@ -10,19 +10,20 @@ namespace GildedRose
 
         private static GildedItem GetItem(Item item)
         {
-            switch(item.Name)
+            bool isConjured = item.Name.ContainsInsensitive(ItemNames.Conjured);
+            if (item.Name.ContainsInsensitive(ItemNames.AgedBrie))
             {
-                case ItemNames.AgedBrie:
-                    return new AgedBrieItem(item);
-                case ItemNames.Sulfuras:
-                    return new SulfurasItem(item);
-                case ItemNames.BackstagePasses:
-                    return new BackstagePassesItem(item);
-                case ItemNames.Conjured:
-                    return new ConjuredItem(item);
-                default:
-                    return new NormalItem(item);
+                return new AgedBrieItem(item, isConjured);
             }
+            if (item.Name.ContainsInsensitive(ItemNames.Sulfuras))
+            {
+                return new SulfurasItem(item, isConjured);
+            }
+            if (item.Name.ContainsInsensitive(ItemNames.BackstagePasses))
+            {
+                return new BackstagePassesItem(item, isConjured);
+            }
+            return new NormalItem(item, isConjured);
         }
     }
 }

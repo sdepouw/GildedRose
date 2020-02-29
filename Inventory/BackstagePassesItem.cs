@@ -2,7 +2,7 @@ namespace GildedRose.Inventory
 {
     public class BackstagePassesItem : GildedItem
     {
-        public BackstagePassesItem(Item item) : base(item) { }
+        public BackstagePassesItem(Item item, bool isConjured) : base(item, isConjured) { }
 
         protected override int CalculateQualityModifier(int sellIn)
         { 

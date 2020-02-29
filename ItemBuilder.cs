@@ -54,7 +54,7 @@ namespace GildedRose
 
         public ItemBuilder Conjured()
         {
-            _item.Name = ItemNames.Conjured;
+            _item.Name = $"{ItemNames.Conjured} {_item.Name}";
             _item.SellIn = 13;
             _item.Quality = 10;
 
