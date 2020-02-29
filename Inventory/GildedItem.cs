@@ -30,10 +30,7 @@ namespace GildedRose.Inventory
             // HACK: -int.MaxValue means "set to 0" basically.
             if (_isConjured && qualityModifier != -int.MaxValue)
             {
-                if (_isConjured)
-                {
-                    qualityModifier *= 2;
-                }
+                qualityModifier *= 2;
             }
             Quality += qualityModifier;
 

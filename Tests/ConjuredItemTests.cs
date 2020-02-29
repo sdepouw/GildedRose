@@ -48,5 +48,13 @@ namespace GildedRose.Tests
             RunApp(item);
             Assert.Equal(46, item.Quality);
         }
+
+        [Fact]
+        public void ConjuredBackstagePassesStillWorthlessAfterConcert()
+        {
+            var item = new ItemBuilder().BackstagePasses().Conjured().Quality(40).SellInExpired().Build();
+            RunApp(item);
+            Assert.Equal(0, item.Quality);
+        }
     }
 }
