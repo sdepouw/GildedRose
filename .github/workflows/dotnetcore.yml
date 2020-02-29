@@ -17,5 +17,5 @@ jobs:
       run: dotnet build --configuration Release
     - name: Unit Tests
       run: dotnet test --filter Category=Unit
-    #- name: Approval Tests
-    #  run: dotnet test --filter Category=Approval
+    - name: Approval Tests
+      run: dotnet test --filter Category=Approval
