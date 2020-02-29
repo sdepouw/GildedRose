@@ -79,6 +79,14 @@ namespace GildedRose
             Assert.Equal(15, item.SellIn);
         }
 
+        [Fact]
+        public void BackstagePassesQualityIncreaseWithAge()
+        {
+            var item = new ItemBuilder().BackstagePasses().Quality(10).Build();
+            RunApp(item);
+            Assert.Equal(11, item.Quality);
+        }
+
         [Theory]
         [InlineData(10)]
         [InlineData(9)]

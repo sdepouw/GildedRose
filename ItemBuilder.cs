@@ -46,7 +46,7 @@ namespace GildedRose
         public ItemBuilder BackstagePasses()
         {
             _item.Name = ItemNames.BackstagePasses;
-            _item.SellIn = 9;
+            _item.SellIn = 20;
             _item.Quality = 40;
 
             return this;

@@ -6,9 +6,10 @@ namespace GildedRose.Inventory
 
         protected override void UpdateQuality()
         { 
+            Quality++;
             if (SellIn <= 10)
             {
-                Quality += 2;
+                Quality++;
             }
             if (SellIn <= 5)
             {
